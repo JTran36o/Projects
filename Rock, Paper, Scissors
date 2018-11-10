@@ -25,10 +25,13 @@ def convert_to_string(play_str):
 def player2():
     player2 = random.randint(0, 2)
     if player2 == 0:
+        print("Computer chose rock!")
         return "rock"
-    if player2 == 1:
+    elif player2 == 1:
+        print("Computer chose paper!")
         return "paper"
-    if player2 == 2:
+    elif player2 == 2:
+        print("Computer chose scissors!")
         return "scissors"
 
 
