@@ -1,8 +1,8 @@
 import random
 
 
-def human(player1):
-    player1 = input("rock, paper, or scissors? ")
+def player1():
+    player1 = raw_input("rock, paper, or scissors? ")
     if player1 == "rock":
         return 0
     elif player1 == "paper":
@@ -22,7 +22,7 @@ def convert_to_string(play_str):
         return "scissors"
 
 
-def computer(player2):
+def player2():
     player2 = random.randint(0, 2)
     if player2 == 0:
         return "rock"
@@ -47,7 +47,18 @@ def determine_winner(player1, player2):
         return -1
 
 
+def convert_to_int(play_int):
+    if play_int == "rock":
+        return 0
+    elif play_int == "paper":
+        return 1
+    elif play_int == "scissors":
+        return 2
+
+
 def main():
-    human()
+    player1()
+    player2()
+    determine_winner(player1, player2)
 
 main()
