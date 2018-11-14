@@ -1,67 +1,80 @@
 import random
 
+def computer():
+    computer = random.randint(0, 2)
+    if computer == 0:
+        computer_rock()
+    elif computer == 1:
+        computer_paper()
+    elif computer == 2:
+        computer_scissors()
 
-def player1():
-    player1 = raw_input("rock, paper, or scissors? ")
-    if player1 == "rock":
-        return 0
-    elif player1 == "paper":
-        return 1
-    elif player1 == "scissors":
-        return 2
+def computer_rock():
+    human = raw_input("rock, paper, or scissors? ")
+    if human == "rock":
+        print "Computer chose rock!"
+        print "It's a tie!"
+        play_again()
+    elif human == "paper":
+        print "Computer chose rock!"
+        print "You  Win!"
+        play_again()
+    elif human == "scissors":
+        print "Computer chose rock!"
+        print "You Lose!"
+        play_again()
     else:
-        print("invalid input, try again")
+        print "invalid input, try again"
 
+def computer_paper():
+    human = raw_input("rock, paper, or scissors? ")
+    if human == "rock":
+        print "Computer chose paper!"
+        print "You Lose!"
+        play_again()
+    elif human == "paper":
+        print "Computer chose paper!"
+        print "It's a Tie!"
+        play_again()
+    elif human == "scissors":
+        print "Computer chose paper!"
+        print "You Win!"
+        play_again()
+    else:
+        print "invalid input, try again"
 
-def convert_to_string(play_str):
-    if play_str == 0:
-        return "rock"
-    elif play_str == 1:
-        return "paper"
-    elif play_str == 2:
-        return "scissors"
+def computer_scissors():
+    human = raw_input("rock, paper, or scissors? ")
+    if human == "rock":
+        print "Computer chose scissors!"
+        print "You Win!"
+        play_again()
+    elif human == "paper":
+        print "Computer chose scissors!"
+        print "You Lose!"
+        play_again()
+    elif human == "scissors":
+        print "Computer chose scissors!"
+        print "It's a Tie!"
+        play_again()
+    else:
+        print "invalid input, try again"
 
-
-def player2():
-    player2 = random.randint(0, 2)
-    if player2 == 0:
-        print("Computer chose rock!")
-        return "rock"
-    elif player2 == 1:
-        print("Computer chose paper!")
-        return "paper"
-    elif player2 == 2:
-        print("Computer chose scissors!")
-        return "scissors"
-
-
-def determine_winner(player1, player2):
-    if (player1 == 0, player2 == 0) or (player1 == 1, player2 == 1) or (player1 == 2, player2 == 2):
-        print("It's a tie!")
-        return 0
-    elif (player1 == 0, player2 == 2) or (player1 == 1, player2 == 0) or (player1 == 2, player2 == 1):
-        print("You win!")
-        return 1
-    elif (player1 == 0, player2 == 1) or (player1 == 1, player2 == 2) or (player1 == 2, player2 == 0):
-        print("You lose!")
-        return -1
-    elif player1 == 4:
-        print("invalid input")
-        return -1
-
-
-def convert_to_int(play_int):
-    if play_int == "rock":
-        return 0
-    elif play_int == "paper":
-        return 1
-    elif play_int == "scissors":
-        return 2
-
+def play_again():
+    play = raw_input("Would you like to play again? y/n ")
+    if play == "y":
+        return computer()
+    elif play == "n":
+        print "Thanks for playing!"
+        quit()
 
 def main():
-    player1()
-    player2()
-    determine_winner(player1, player2)
+
+    computer()
+    computer_rock()
+    computer_paper()
+    computer_scissors()
+    play_again()
+    quit()
 
 main()
